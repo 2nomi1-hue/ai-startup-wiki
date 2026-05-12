@@ -1,0 +1,13 @@
+theme: jekyll-theme-cayman
+title: AI 스타트업 기초 위키
+description: SMIT 2026 | AI 스타트업 기초 수업 정리 위키
+
+# 모든 마크다운 파일에 기본 레이아웃 적용
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# 한국어 파일명 지원
+encoding: UTF-8
