@@ -1,153 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI 스타트업 기초 위키 — SMIT 2026</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <main class="cn-paper" data-screen-label="홈">
+    <header class="cn-mast">
+      <div class="mark">A·I · S·T·A·R·T·U·P · W·I·K·I</div>
+      <nav>
+        <a href="index.html" class="on">목 차</a>
+        <a href="about.html">소 개</a>
+        <a href="#search">검 색</a>
+      </nav>
+    </header>
 
-<nav>
-  <span class="nav-logo">🚀 AI 스타트업 위키</span>
-  <div class="nav-links">
-    <a href="index.html">홈</a>
-    <a href="about.html">About</a>
-  </div>
-</nav>
+    <div class="cn-volume">
+      <span>Vol. I · SMIT 二〇二六</span>
+      <span>편집 노트 · 8 항목</span>
+    </div>
 
-<section class="hero">
-  <h1>AI 스타트업 기초 위키</h1>
-  <p>SMIT 2026 수업 정리 노트 · 스타트업의 본질부터 기업가정신까지</p>
-</section>
+    <section class="cn-hero">
+      <div class="eyebrow">— 수업 정리 노트 —</div>
+      <h1>스타트업의 <em>본질</em>에 대하여<br />여덟 편의 노트</h1>
+      <p class="sub">실리콘밸리에서 출발한 한 단어가 한국의 생태계에 닿기까지 ―
+        정의·전략·기업가정신을 차곡차곡 정리한 위키.</p>
+      <div class="orn">· · · · ·</div>
+    </section>
 
-<main>
-  <p class="section-title">📚 전체 글 목록</p>
-
-  <div class="card-grid">
-
-    <a href="posts/01.html">
-      <div class="card">
-        <div class="card-number">Week 1 · 01</div>
-        <h3>스타트업 정의와 역사</h3>
-        <p>스타트업이란 무엇인가? 1970년대 실리콘밸리에서 시작된 개념과 한국 생태계까지 총정리.</p>
-        <div class="card-tags">
-          <span class="tag">정의</span>
-          <span class="tag">역사</span>
-          <span class="tag">실리콘밸리</span>
-        </div>
+    <section class="cn-toc" id="search">
+      <div class="toc-head">
+        <h2>Table of Contents — 차 례</h2>
+        <span class="count">전체 8 편</span>
       </div>
-    </a>
 
-    <a href="posts/02.html">
-      <div class="card">
-        <div class="card-number">Week 1~2 · 02</div>
-        <h3>스타트업 5가지 핵심 특성</h3>
-        <p>문제해결성·파괴성·창조성·성장성·불확실성 — 스타트업을 스타트업답게 만드는 5가지.</p>
-        <div class="card-tags">
-          <span class="tag">문제해결</span>
-          <span class="tag">파괴성</span>
-          <span class="tag">MVP</span>
-        </div>
+      <form class="cn-search" onsubmit="event.preventDefault();" role="search">
+        <span class="icn">⌕</span>
+        <input id="cn-search-input" type="search" placeholder="제목·키워드 검색" autocomplete="off" />
+        <span class="kbd">⌘ K</span>
+      </form>
+
+      <div class="cn-rows" id="cn-rows">
+        <a class="cn-row" href="post.html?id=01" data-search="스타트업 정의와 역사 정의 역사 실리콘밸리 week 1">
+          <div class="no">01.</div>
+          <div class="week">Week 1</div>
+          <div class="body">
+            <div class="ttl">스타트업 정의와 역사</div>
+            <div class="summary">1970년대 실리콘밸리에서 시작된 개념과 한국 생태계까지 총정리.</div>
+            <div class="tags"><span>— 정의</span><span>— 역사</span><span>— 실리콘밸리</span></div>
+          </div>
+          <div class="page">007</div>
+        </a>
+        <a class="cn-row" href="post.html?id=02" data-search="스타트업 5가지 핵심 특성 문제해결 파괴성 mvp week 1 2">
+          <div class="no">02.</div>
+          <div class="week">Week 1~2</div>
+          <div class="body">
+            <div class="ttl">스타트업 5가지 핵심 특성</div>
+            <div class="summary">문제해결성·파괴성·창조성·성장성·불확실성 — 스타트업을 스타트업답게 만드는 5가지.</div>
+            <div class="tags"><span>— 문제해결</span><span>— 파괴성</span><span>— MVP</span></div>
+          </div>
+          <div class="page">014</div>
+        </a>
+        <a class="cn-row" href="post.html?id=03" data-search="disruption decoupling 전략 week 3">
+          <div class="no">03.</div>
+          <div class="week">Week 3</div>
+          <div class="body">
+            <div class="ttl">Disruption과 Decoupling</div>
+            <div class="summary">구조적 파괴 전략이란? Decoupling 프레임워크와 5가지 실제 사례 분석.</div>
+            <div class="tags"><span>— Disruption</span><span>— Decoupling</span><span>— 전략</span></div>
+          </div>
+          <div class="page">021</div>
+        </a>
+        <a class="cn-row" href="post.html?id=04" data-search="고속 성장 3대 엔진 saas plg t2d3 week 3">
+          <div class="no">04.</div>
+          <div class="week">Week 3</div>
+          <div class="body">
+            <div class="ttl">고속 성장 3대 엔진</div>
+            <div class="summary">소프트웨어 확장성 · 네트워크 효과 · PLG. T2D3와 J-Curve로 보는 스타트업 성장 공식.</div>
+            <div class="tags"><span>— SaaS</span><span>— PLG</span><span>— T2D3</span></div>
+          </div>
+          <div class="page">028</div>
+        </a>
+        <a class="cn-row" href="post.html?id=05" data-search="불확실성 검증 mvp 린스타트업 피벗 week 3">
+          <div class="no">05.</div>
+          <div class="week">Week 3</div>
+          <div class="body">
+            <div class="ttl">불확실성 · 검증 · MVP</div>
+            <div class="summary">5대 불확실성, MVP의 의미, Kill Your Idea 워크샵. 스타트업이 먼저 해야 할 것.</div>
+            <div class="tags"><span>— MVP</span><span>— 린스타트업</span><span>— 피벗</span></div>
+          </div>
+          <div class="page">035</div>
+        </a>
+        <a class="cn-row" href="post.html?id=06" data-search="investor pitch 전략 피치 vc 투자 week 4">
+          <div class="no">06.</div>
+          <div class="week">Week 4</div>
+          <div class="body">
+            <div class="ttl">Investor Pitch 전략</div>
+            <div class="summary">투자자 관점에서 본 5문장 피치 구조와 투자자가 반드시 묻는 10가지 질문.</div>
+            <div class="tags"><span>— 피치</span><span>— VC</span><span>— 투자</span></div>
+          </div>
+          <div class="page">042</div>
+        </a>
+        <a class="cn-row" href="post.html?id=07" data-search="기업가정신 후츠파 마인드셋 week 5 6">
+          <div class="no">07.</div>
+          <div class="week">Week 5~6</div>
+          <div class="body">
+            <div class="ttl">기업가정신</div>
+            <div class="summary">기업가정신의 역사와 분류, 이스라엘의 후츠파 마인드셋, 한국형 기업가 DNA.</div>
+            <div class="tags"><span>— 기업가정신</span><span>— 후츠파</span><span>— 마인드셋</span></div>
+          </div>
+          <div class="page">049</div>
+        </a>
+        <a class="cn-row" href="post.html?id=08" data-search="기업가 커리어 한국 생태계 neci tips week 5 6">
+          <div class="no">08.</div>
+          <div class="week">Week 5~6</div>
+          <div class="body">
+            <div class="ttl">기업가 커리어와 한국 생태계</div>
+            <div class="summary">창업 커리어 설계, 나이·학력 미신 깨기, 한국 NECI 현황과 TIPS 프로그램.</div>
+            <div class="tags"><span>— 커리어</span><span>— NECI</span><span>— TIPS</span></div>
+          </div>
+          <div class="page">056</div>
+        </a>
       </div>
-    </a>
+    </section>
 
-    <a href="posts/03.html">
-      <div class="card">
-        <div class="card-number">Week 3 · 03</div>
-        <h3>Disruption과 Decoupling</h3>
-        <p>구조적 파괴 전략이란? Decoupling 프레임워크와 5가지 실제 사례 분석.</p>
-        <div class="card-tags">
-          <span class="tag">Disruption</span>
-          <span class="tag">Decoupling</span>
-          <span class="tag">전략</span>
-        </div>
-      </div>
-    </a>
+    <footer class="cn-foot">
+      <span>SMIT · 2026</span>
+      <span>— FINIS —</span>
+      <span>편집 : 2nomi1</span>
+    </footer>
+  </main>
 
-    <a href="posts/04.html">
-      <div class="card">
-        <div class="card-number">Week 3 · 04</div>
-        <h3>고속 성장 3대 엔진</h3>
-        <p>소프트웨어 확장성 · 네트워크 효과 · PLG. T2D3와 J-Curve로 보는 스타트업 성장 공식.</p>
-        <div class="card-tags">
-          <span class="tag">SaaS</span>
-          <span class="tag">PLG</span>
-          <span class="tag">T2D3</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="posts/05.html">
-      <div class="card">
-        <div class="card-number">Week 3 · 05</div>
-        <h3>불확실성 · 검증 · MVP</h3>
-        <p>5대 불확실성, MVP의 의미, Kill Your Idea 워크샵. 스타트업이 먼저 해야 할 것.</p>
-        <div class="card-tags">
-          <span class="tag">MVP</span>
-          <span class="tag">린스타트업</span>
-          <span class="tag">피벗</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="posts/06.html">
-      <div class="card">
-        <div class="card-number">Week 4 · 06</div>
-        <h3>Investor Pitch 전략</h3>
-        <p>투자자 관점에서 본 5문장 피치 구조와 투자자가 반드시 묻는 10가지 질문.</p>
-        <div class="card-tags">
-          <span class="tag">피치</span>
-          <span class="tag">VC</span>
-          <span class="tag">투자</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="posts/07.html">
-      <div class="card">
-        <div class="card-number">Week 5~6 · 07</div>
-        <h3>기업가정신</h3>
-        <p>기업가정신의 역사와 분류, 이스라엘의 후츠파 마인드셋, 한국형 기업가 DNA.</p>
-        <div class="card-tags">
-          <span class="tag">기업가정신</span>
-          <span class="tag">후츠파</span>
-          <span class="tag">마인드셋</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="posts/08.html">
-      <div class="card">
-        <div class="card-number">Week 5~6 · 08</div>
-        <h3>기업가 커리어와 한국 생태계</h3>
-        <p>창업 커리어 설계, 나이·학력 미신 깨기, 한국 NECI 현황과 TIPS 프로그램.</p>
-        <div class="card-tags">
-          <span class="tag">커리어</span>
-          <span class="tag">NECI</span>
-          <span class="tag">TIPS</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="posts/quiz.html">
-      <div class="card" style="border-left-color: #3d5af1;">
-        <div class="card-number" style="color:#3d5af1;">🧪 퀴즈</div>
-        <h3>스타트업 특성 예상문제</h3>
-        <p>5가지 핵심 특성 쪽지시험 대비 예상문제 9문제 + 정답 해설 수록.</p>
-        <div class="card-tags">
-          <span class="tag">퀴즈</span>
-          <span class="tag">시험대비</span>
-        </div>
-      </div>
-    </a>
-
-  </div>
-</main>
-
-<footer>
-  <p>AI 스타트업 기초 위키 · SMIT 2026 · Built with Claude Code</p>
-</footer>
-
+  <script>
+    // simple title/keyword filter
+    (function () {
+      const input = document.getElementById('cn-search-input');
+      const rows = Array.from(document.querySelectorAll('#cn-rows .cn-row'));
+      input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        rows.forEach((r) => {
+          const hay = (r.dataset.search + ' ' + r.textContent).toLowerCase();
+          r.style.display = !q || hay.includes(q) ? '' : 'none';
+        });
+      });
+      // ⌘K / Ctrl+K to focus
+      document.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          input.focus();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
