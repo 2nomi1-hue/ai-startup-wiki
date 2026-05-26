@@ -1,0 +1,7 @@
+name = "ai-startup-wiki"
+pages_build_output_dir = "docs"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ai-wiki-db"
+database_id = "d8152557-7f9d-4abd-a83c-db842f5dcd0f"

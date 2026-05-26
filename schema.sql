@@ -1,0 +1,18 @@
+-- 사용자 명부 테이블
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT UNIQUE NOT NULL,
+  auth_method TEXT NOT NULL,
+  tier TEXT DEFAULT 'free',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Magic Link 토큰 테이블 (15분 만료, 1회용)
+CREATE TABLE IF NOT EXISTS magic_link_tokens (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT NOT NULL,
+  token TEXT UNIQUE NOT NULL,
+  expires_at DATETIME NOT NULL,
+  used INTEGER DEFAULT 0,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

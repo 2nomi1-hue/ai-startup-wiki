@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 — AI 스타트업 위키</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .login-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .login-box {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .login-box h1 {
+      font-size: 1.4rem;
+      margin: 0 0 6px;
+      color: var(--ink);
+    }
+    .login-box p.sub {
+      color: var(--mute);
+      font-size: 0.9rem;
+      margin: 0 0 28px;
+    }
+    .login-box input[type="email"] {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: var(--paper);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .login-box input[type="email"]:focus {
+      border-color: var(--accent);
+    }
+    .login-box button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .login-box button:hover { opacity: 0.85; }
+    .login-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .msg {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .msg.success { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .msg.error   { background: #fdecea; color: #b71c1c; border: 1px solid #ef9a9a; }
+    .back { display: block; margin-top: 20px; text-align: center; font-size: 0.85rem; color: var(--mute); }
+    .back a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-box">
+      <h1>로그인</h1>
+      <p class="sub">이메일을 입력하면 로그인 링크를 보내드려요.</p>
+
+      <!-- 에러 메시지 (URL 파라미터 기반) -->
+      <div id="urlMsg" class="msg"></div>
+
+      <form id="loginForm">
+        <input type="email" id="emailInput" placeholder="your@email.com" required autocomplete="email">
+        <button type="submit" id="submitBtn">로그인 링크 받기</button>
+      </form>
+
+      <div id="resultMsg" class="msg"></div>
+      <span class="back"><a href="/">← 홈으로 돌아가기</a></span>
+    </div>
+  </div>
+
+  <script>
+    // URL 에러 파라미터 처리
+    const params = new URLSearchParams(location.search);
+    const urlMsg = document.getElementById('urlMsg');
+    if (params.get('error') === 'expired') {
+      urlMsg.textContent = '링크가 만료됐어요. 다시 요청해주세요.';
+      urlMsg.className = 'msg error';
+      urlMsg.style.display = 'block';
+    } else if (params.get('error') === 'invalid') {
+      urlMsg.textContent = '유효하지 않은 링크예요. 다시 요청해주세요.';
+      urlMsg.className = 'msg error';
+      urlMsg.style.display = 'block';
+    }
+
+    // 폼 제출 처리
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value.trim();
+      const btn = document.getElementById('submitBtn');
+      const msg = document.getElementById('resultMsg');
+
+      btn.disabled = true;
+      btn.textContent = '발송 중...';
+      msg.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/auth/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          msg.textContent = '✅ ' + data.message;
+          msg.className = 'msg success';
+          document.getElementById('emailInput').value = '';
+        } else {
+          msg.textContent = '❌ ' + (data.error || '오류가 발생했습니다.');
+          msg.className = 'msg error';
+          btn.disabled = false;
+          btn.textContent = '로그인 링크 받기';
+        }
+      } catch {
+        msg.textContent = '❌ 네트워크 오류가 발생했습니다.';
+        msg.className = 'msg error';
+        btn.disabled = false;
+        btn.textContent = '로그인 링크 받기';
+      }
+      msg.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
